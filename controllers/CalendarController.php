@@ -11,8 +11,9 @@ class CalendarController
     $dataDepartSub = $model->departSub();
     $dataArriveSub = $model->arriveSub();
     $datasTache = $model->tacheToJson();
-    $datasSuivi = $model->suiviToJson();
-    $datasSuiviToJs = json_encode($datasSuivi);
+    $datasSuiviJs = $model->suiviToJson();
+    $datasSuivi = $model->suiviOfDay();
+    $datasSuiviToJs = json_encode($datasSuiviJs);
     $datasTacheToJs = json_encode($datasTache);
     require 'views/calendar.php';
   }

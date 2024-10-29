@@ -16,7 +16,8 @@ class CalendarModel extends CoreModel
   public function count()
   {
     try {
-      $this->_req = $this->getDb()->prepare('SELECT COUNT(*) count FROM suivi');
+      $this->_req = $this->getDb()->prepare('SELECT COUNT(*) count FROM suivi WHERE DATEDIFF(s_heure_debut, :day) = 0');
+      $this->_req->bindValue(':day', $today = date("Y-m-j"));
       $this->_req->execute();
       $dataCountSuivi = $this->_req->fetch(PDO::FETCH_ASSOC);
       return $dataCountSuivi;
@@ -145,6 +146,19 @@ class CalendarModel extends CoreModel
   {
     try {
       $this->_req = $this->getDb()->prepare('SELECT * FROM suivi');
+      $this->_req->execute();
+      $datasSuiviToJs = $this->_req->fetchAll(PDO::FETCH_ASSOC);
+      return $datasSuiviToJs;
+    } catch (Exception $e) {
+      $e->getMessage();
+    }
+  }
+
+  public function suiviOfDay()
+  {
+    try {
+      $this->_req = $this->getDb()->prepare('SELECT * FROM suivi WHERE DATE(s_heure_debut) = :day');
+      $this->_req->bindValue(':day', $today = date("Y-m-j"));
       $this->_req->execute();
       $datasSuivi = $this->_req->fetchAll(PDO::FETCH_ASSOC);
       return $datasSuivi;

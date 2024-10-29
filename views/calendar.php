@@ -1,15 +1,6 @@
 <?php
 
 
-if (isset($datasTache)) {
-  $datasTacheToJs = json_encode($datasTache);
-}
-
-
-if (isset($datasSuivi)) {
-  $datasSuiviToJs = json_encode($datasSuivi);
-}
-
 if (isset($dataArriveSub['difference']) && isset($dataDepartSub['difference'])) {
   $differencesTotale = $dataArriveSub['difference'] + $dataDepartSub['difference'];
 }
@@ -25,7 +16,7 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
 <!--    Main Content-->
 <!-- ===============================================-->
 <main class="main" id="top">
-  <?= include 'inc/nav.php' ?>
+  <?= include 'inc/nav.php'; ?>
   <div class="content">
     <div class="row g-0 mb-4 align-items-center">
       <div class="col-5 col-md-6">

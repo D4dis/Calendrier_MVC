@@ -7,11 +7,11 @@ require_once 'controllers/CalendarController.php';
 
 $db = new PDO(DB_ENGINE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PWD);
 
-$ctrl = $_GET['ctrl'] ?? 'calendar';
+$ctrl = $_GET['ctrl'] ?? 'home';
 
 $action = $_GET['action'] ?? 'index';
 
-$ctrl = 'CalendarController';
+$ctrl = 'HomeController';
 if (isset($_GET['ctrl'])) {
     $ctrl = ucfirst(strtolower($_GET['ctrl'])) . 'Controller';
 }

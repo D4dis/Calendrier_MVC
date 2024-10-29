@@ -4,8 +4,6 @@
 })((function () {
   'use strict';
 
-
-
   /* -------------------------------------------------------------------------- */
 
   const camelize = str => {
@@ -101,6 +99,7 @@
     )),
   ];
 
+
   const getTemplate = event => `
 <div class="modal-header ps-card border-bottom border-translucent">
   <div>
@@ -136,7 +135,7 @@
     <p class="mb-1 mt-2">
     ${window.dayjs &&
     window.dayjs(event.start).format('dddd, D MMMM, YYYY, h:mm A')
-    } 
+    }
     ${event.end
       ? `– ${window.dayjs &&
       window

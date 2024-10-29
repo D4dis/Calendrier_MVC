@@ -14,7 +14,7 @@
               <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-home">
                 <li class="collapsed-nav-item-title d-none">Home
                 </li>
-                <li class="nav-item"><a class="nav-link" href="index.html">
+                <li class="nav-item"><a class="nav-link" href="index.php?ctrl=home">
                     <div class="d-flex align-items-center"><span class="nav-link-text">E commerce</span>
                     </div>
                   </a>
@@ -595,7 +595,7 @@
             </div>
           </div>
           <!-- parent pages-->
-          <div class="nav-item-wrapper"><a class="nav-link active label-1" href="../apps/calendar.html" role="button" data-bs-toggle="" aria-expanded="false">
+          <div class="nav-item-wrapper"><a class="nav-link label-1" href="index.php?ctrl=calendar" role="button" data-bs-toggle="" aria-expanded="false">
               <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="calendar"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Calendar</span></span>
               </div>
             </a>
