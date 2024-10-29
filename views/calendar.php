@@ -122,12 +122,14 @@ var_dump($_POST);
           <h5 class="modal-title" id="exampleModalLabel">Veuillez rentrer les nouvelles informations</h5>
           <button class="btn btn-close p-1" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body gap-5">
           <form action="" method="post">
-            <label class="form-label" for="timepicker1">Heure début</label>
-            <input class="form-control datetimepicker flatpickr-input" id="timepicker1" name="heureDebut" type="text" placeholder="Heure : minute" data-options="{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;disableMobile&quot;:true}" readonly="readonly">
+            <div class="my-5">
+              <div class="mb-2"><label class="form-label" for="timepicker1">Heure début</label></div>
+              <input class="form-control datetimepicker flatpickr-input" id="timepicker1" name="heureDebut" type="text" placeholder="Heure : minute" data-options="{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;disableMobile&quot;:true}" readonly="readonly">
+            </div>
 
-            <label class="form-label" for="timepicker2">Heure fin</label>
+            <div class="mb-2"><label class="form-label" for="timepicker2">Heure fin</label></div>
             <input class="form-control datetimepicker flatpickr-input" id="timepicker2" name="heureFin" type="text" placeholder="Heure : minute" data-options="{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;disableMobile&quot;:true}" readonly="readonly">
         </div>
         <div class="modal-footer">

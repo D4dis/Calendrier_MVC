@@ -92,7 +92,7 @@
     ...datasSuiviFromPhp.map(dataSuivi => (
       {
         id: dataSuivi.s_id,
-        title: dataSuivi.s_status === 1 ? 'Arrivé' : 'Départ',
+        title: dataSuivi.s_status === 1 ? 'Matin' : 'Aprés-midi',
         start: `${dataSuivi.s_heure_debut}`,
         end: `${dataSuivi.s_heure_fin}`,
         className: dataSuivi.s_status !== 1 ? 'text-danger' : 'text-primary',
@@ -177,19 +177,21 @@
   </div>
 
   <div class="modal-footer d-flex justify-content-end px-card pt-0 border-top-0">
-    <button class="btn btn-phoenix-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit" >
+    <button class="btn btn-phoenix-secondary btn-sm" data-event-id="${event.id}" id="deleteEventBtn" data-bs-toggle="modal" data-bs-target="#modalEdit" >
       <span class="fas fa-pencil-alt fs-10 mr-2"></span> Edit
     </button>
-    <button type="sumbit" class="btn btn-phoenix-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalDel" >
+    <button type="sumbit" class="btn btn-phoenix-danger btn-sm" data-event-id="${event.id}" id="deleteEventBtn" data-bs-toggle="modal" data-bs-target="#modalDel" >
     <span class="fa-solid fa-trash fs-9 mr-2" data-fa-transform="shrink-2"></span> Delete
     </button>
 </div>
 `;
 
+
   /*-----------------------------------------------
   |   Calendar
   -----------------------------------------------*/
   const appCalendarInit = () => {
+
     const Selectors = {
       ACTIVE: '.active',
       ADD_EVENT_FORM: '#addEventForm',
@@ -411,3 +413,35 @@
 
 }));
 //# sourceMappingURL=calendar.js.map
+
+document
+  .getElementById('modalDel')
+  .addEventListener('shown.bs.modal', function () {
+    const deleteButton = document.getElementById('deleteEventBtn');
+    if (deleteButton) {
+      deleteButton.addEventListener('click', function () {
+        const eventId = this.getAttribute('data-event-id');
+
+        // Envoyer l'ID de l'événement à PHP via AJAX
+        fetch('http://localhost/stage/Calendrier_MVC/calendar.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: eventId })
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              console.log('Événement supprimé avec succès');
+              // Optionnel : fermer le modal et rafraîchir le calendrier
+            } else {
+              console.error('Erreur lors de la suppression de l’événement');
+            }
+          })
+          .catch(error => console.error('Erreur :', error));
+      });
+    } else {
+      console.error('Le bouton de suppression n’a pas pu être trouvé');
+    }
+  });
