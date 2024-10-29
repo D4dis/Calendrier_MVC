@@ -120,10 +120,11 @@ class CalendarModel extends CoreModel
     }
   }
 
-  public function truncate()
+  public function delete()
   {
     try {
-      $this->_req = $this->getDb()->prepare('TRUNCATE TABLE suivi');
+      $this->_req = $this->getDb()->prepare('DELETE FROM suivi WHERE DATEDIFF(s_heure_debut, :day) = 0');
+      $this->_req->bindValue(':day', $today = date("Y-m-j"));
       $this->_req->execute();
     } catch (Exception $e) {
       $e->getMessage();
@@ -167,49 +168,14 @@ class CalendarModel extends CoreModel
     }
   }
 
+public function confirmDeleteOneEvent($id){
+  try {
+    $this->_req = $this->getDb()->prepare('DELETE FROM suivi WHERE s_id = :id');
+    $this->_req->bindValue(':id', $id);
+    $this->_req->execute();
+  } catch (Exception $e) {
+    $e->getMessage();
+  }
+}
 
-  // public function index()
-  // {
-  //   try {
-
-  //     if (isset($_POST['statut']) && in_array($_POST['statut'], ['0', '1'])) {
-  //       if (isset($_POST['statut']) && in_array($_POST['statut'], ['0', '1'])) {
-  //         switch ($_POST['statut']) {
-  //           case 1:
-  //             if ($dataCountSuivi['count'] < 1) {
-  //               $this->_req = $this->getDb()->prepare('INSERT INTO suivi VALUES(DEFAULT, CURRENT_TIMESTAMP, 1, NULL)');
-  //             } elseif ($dataCountSuivi['count'] < 2) {
-  //               $this->_req = $this->getDb()->prepare('INSERT INTO suivi VALUES(DEFAULT, CURRENT_TIMESTAMP, 0, NULL)');
-  //             } else {
-  //               break;
-  //             }
-  //             break;
-  //           case 0:
-  //             if ($dataArrive['s_heure_fin'] == NULL && $dataCountSuivi['count'] == 1) {
-  //               $this->_req = $this->getDb()->prepare('UPDATE suivi SET s_heure_fin = CURRENT_TIMESTAMP WHERE s_status = 1 AND DATEDIFF(s_heure_debut, :day) = 0');
-  //             } elseif (empty($dataDepart['s_heure_fin'])) {
-  //               $this->_req = $this->getDb()->prepare('UPDATE suivi SET s_heure_fin = CURRENT_TIMESTAMP WHERE s_status = 0 AND DATEDIFF(s_heure_debut, :day) = 0');
-  //             } else {
-  //               break;
-  //             }
-  //             break;
-  //         }
-  //         if ($_POST['statut'] == 0 && isset($this->_req)) {
-  //           $this->_req->bindValue(':day', $today = date("Y-m-j"));
-  //         }
-  //         if (isset($this->_req)) {
-  //           $this->_req->execute();
-  //         }
-  //         header('Location: calendar.php');
-  //       }
-  //     }
-
-  //     if (isset($_POST['delete']) && !empty($_POST['delete'])) {
-
-  //       header('Location: calendar.php');
-  //     }
-  //   } catch (Exception $e) {
-  //     $e->getMessage();
-  //   }
-  // }
 }

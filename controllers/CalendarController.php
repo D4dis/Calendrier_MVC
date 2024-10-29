@@ -21,31 +21,41 @@ class CalendarController
   public function insertMatin(){
     $model = new CalendarModel();
     $model->insert1();
-    header('Location: index.php');
+    header('Location: index.php?ctrl=calendar');
   }
 
   public function updateMatin(){
     $model = new CalendarModel();
     $model->update1();
-    header('Location: index.php');
+    header('Location: index.php?ctrl=calendar');
   }
 
   public function insertAprem(){
     $model = new CalendarModel();
     $model->insert2();
-    header('Location: index.php');
+    header('Location: index.php?ctrl=calendar');
   }
 
   public function updateAprem(){
     $model = new CalendarModel();
     $model->update2();
-    header('Location: index.php');
+    header('Location: index.php?ctrl=calendar');
   }
 
-  public function truncate(){
+  public function delete(){
     $model = new CalendarModel();
-    $model->truncate();
-    header('Location: index.php');
+    $model->delete();
+    header('Location: index.php?ctrl=calendar');
+  }
+
+  public function deleteOneEvent(){
+    require 'views/calendar.php';
+  }
+
+  public function confirmDeleteOneEvent(){
+    $model = new CalendarModel();
+    $model->confirmDeleteOneEvent($_GET['id']);
+    header('Location: index.php?ctrl=calendar');
   }
 
 }
