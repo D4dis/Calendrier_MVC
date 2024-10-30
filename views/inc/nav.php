@@ -28,7 +28,7 @@
           <!-- label-->
           <p class="navbar-vertical-label">Apps
           </p>
-          <hr class="navbar-vertical-line" />       
+          <hr class="navbar-vertical-line" />
           <!-- parent pages-->
           <div class="nav-item-wrapper"><a class="nav-link label-1" href="index.php?ctrl=calendar" role="button" data-bs-toggle="" aria-expanded="false">
               <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="calendar"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Calendar</span></span>
@@ -53,15 +53,20 @@
                     <div class="d-flex align-items-center"><span class="nav-link-text">Faq tab</span>
                     </div>
                   </a>
-                  <!-- more inner pages-->
                 </li>
               </ul>
             </div>
           </div>
-        
-  <div class="navbar-vertical-footer">
-    <button class="btn navbar-vertical-toggle border-0 fw-semibold w-100 white-space-nowrap d-flex align-items-center"><span class="uil uil-left-arrow-to-left fs-8"></span><span class="uil uil-arrow-from-right fs-8"></span><span class="navbar-vertical-footer-text ms-2">Collapsed View</span></button>
-  </div>
+          <!-- parent pages-->
+          <div class="nav-item-wrapper"><a class="nav-link label-1" href="index.php?ctrl=produitsChimiques" role="button" data-bs-toggle="" aria-expanded="false">
+              <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="help-circle"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Produits Chimiques</span></span>
+              </div>
+            </a>
+          </div>
+
+          <div class="navbar-vertical-footer">
+            <button class="btn navbar-vertical-toggle border-0 fw-semibold w-100 white-space-nowrap d-flex align-items-center"><span class="uil uil-left-arrow-to-left fs-8"></span><span class="uil uil-arrow-from-right fs-8"></span><span class="navbar-vertical-footer-text ms-2">Collapsed View</span></button>
+          </div>
 </nav>
 <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault">
   <div class="collapse navbar-collapse justify-content-between">
