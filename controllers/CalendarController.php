@@ -4,6 +4,7 @@ class CalendarController
 {
   public function index()
   {
+    session_destroy();
     $model = new CalendarModel();
     $dataCountSuivi = $model->count();
     $dataArrive = $model->dataArrive();

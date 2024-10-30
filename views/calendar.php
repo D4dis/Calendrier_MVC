@@ -19,6 +19,7 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
 <!--    Main Content-->
 <!-- ===============================================-->
 <main class="main" id="top">
+  <?= include 'inc/nav.php'; ?>
   <div class="content">
     <div class="row g-0 mb-4 align-items-center">
       <div class="col-5 col-md-6">
@@ -98,32 +99,6 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
     </div>
     <div class="calendar-outline mt-3 mb-9" id="appCalendar"></div>
   </div>
-  <!-- <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Veuillez rentrer les nouvelles informations</h5>
-          <button class="btn btn-close p-1" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body gap-5">
-          <form action="" method="post">
-            <div class="my-5">
-              <div class="mb-2"><label class="form-label" for="timepicker1">Heure début</label></div>
-              <input class="form-control datetimepicker flatpickr-input" id="timepicker1" name="heureDebut" type="text" placeholder="Heure : minute" data-options="{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;disableMobile&quot;:true}" readonly="readonly">
-            </div>
-
-            <div class="mb-2"><label class="form-label" for="timepicker2">Heure fin</label></div>
-            <input class="form-control datetimepicker flatpickr-input" id="timepicker2" name="heureFin" type="text" placeholder="Heure : minute" data-options="{&quot;enableTime&quot;:true,&quot;noCalendar&quot;:true,&quot;dateFormat&quot;:&quot;H:i&quot;,&quot;disableMobile&quot;:true}" readonly="readonly">
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" type="submit">Confirmer</button>
-          </form>
-          <button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Annuler</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div class="modal fade" id="searchBoxModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" data-phoenix-modal="data-phoenix-modal" style="--phoenix-backdrop-opacity: 1;">
     <div class="modal-dialog">
       <div class="modal-content mt-15 rounded-pill">

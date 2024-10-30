@@ -9,11 +9,14 @@ var_dump($_POST);
 
 <main class="main" id="top">
   <div class="content">
+    <?= include 'inc/nav.php'; ?>
     <?php if (isset($_SESSION['error'])) : ?>
-      <div class="alert alert-outline-danger d-flex align-items-center" role="alert">
-        <span class="fas fa-times-circle text-danger fs-5 me-3"></span>
-        <p class="mb-0 flex-1"><?= $_SESSION['error'] ?></p>
-        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+      <div class="d-flex justify-content-center">
+        <div class="alert alert-outline-danger d-flex align-items-center w-50" role="alert">
+          <span class="fas fa-times-circle text-danger fs-5 me-3"></span>
+          <p class="mb-0 flex-1"><?= $_SESSION['error'] ?></p>
+          <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
       </div>
     <?php endif; ?>
     <div class="d-flex justify-content-center">
