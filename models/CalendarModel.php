@@ -168,14 +168,66 @@ class CalendarModel extends CoreModel
     }
   }
 
-public function confirmDeleteOneEvent($id){
-  try {
-    $this->_req = $this->getDb()->prepare('DELETE FROM suivi WHERE s_id = :id');
-    $this->_req->bindValue(':id', $id);
-    $this->_req->execute();
-  } catch (Exception $e) {
-    $e->getMessage();
+  public function confirmDeleteOneEvent($id)
+  {
+    try {
+      $this->_req = $this->getDb()->prepare('DELETE FROM suivi WHERE s_id = :id');
+      $this->_req->bindValue(':id', $id);
+      $this->_req->execute();
+    } catch (Exception $e) {
+      $e->getMessage();
+    }
   }
-}
 
+  public function confirmEditOneEvent($datas)
+  {
+
+    function isSetAndNotEmpty($var)
+    {
+      return isset($var) && !empty($var);
+    }
+
+    if (isSetAndNotEmpty($datas['heureDebut'])) {
+      $heureDebut0 = substr($datas['heureDebut'], 0, 2);
+      $heureDebut1 = substr($datas['heureDebut'], 3, 5);
+    }
+
+    if (isSetAndNotEmpty($datas['heureFin'])) {
+      $heureFin0 = substr($datas['heureFin'], 0, 2);
+      $heureFin1 = substr($datas['heureFin'], 3, 5);
+    }
+
+    $id = intval($datas['id']);
+
+    if (isSetAndNotEmpty($heureDebut0) && !isset($heureFin0)) {
+      $sql = "UPDATE suivi SET s_heure_debut = CONCAT(DATE(s_heure_debut), ' ', LPAD(:heure_debut0, 2, '0'), ':', LPAD(:heure_debut1, 2, '0')) WHERE s_id = :id;";
+    }
+
+    if (isSetAndNotEmpty($heureFin0) && !isset($heureDebut0)) {
+      $sql = "UPDATE suivi SET s_heure_fin = CONCAT(DATE(s_heure_fin), ' ', LPAD(:heure_fin0, 2, '0'), ':', LPAD(:heure_fin1, 2, '0')) WHERE s_id = :id;";
+    }
+
+    if (isSetAndNotEmpty($heureDebut0) && isSetAndNotEmpty($heureFin0)) {
+      $sql = "UPDATE suivi SET s_heure_debut = CONCAT(DATE(s_heure_debut), ' ', LPAD(:heure_debut0, 2, '0'), ':', LPAD(:heure_debut1, 2, '0')), s_heure_fin = CONCAT(DATE(s_heure_fin), ' ', LPAD(:heure_fin0, 2, '0'), ':', LPAD(:heure_fin1, 2, '0')) WHERE s_id = :id;";
+    }
+
+
+
+    try {
+      $this->_req = $this->getDb()->prepare($sql);
+      if (isSetAndNotEmpty($heureDebut0)) {
+        $this->_req->bindValue(':heure_debut0', $heureDebut0);
+        $this->_req->bindValue(':heure_debut1', $heureDebut1);
+      }
+      if (isSetAndNotEmpty($heureFin0)) {
+        $this->_req->bindValue(':heure_fin0', $heureFin0);
+        $this->_req->bindValue(':heure_fin1', $heureFin1);
+      }
+      $this->_req->bindValue(':id', $id);
+      $this->_req->execute();
+      var_dump($this);
+    } catch (Exception $e) {
+      $e->getMessage();
+    }
+  }
 }

@@ -7,8 +7,9 @@ if (isset($dataArriveSub['difference']) && isset($dataDepartSub['difference'])) 
 
 $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale) : '';
 
-var_dump($_POST);
+// if (isset($_POST['eventIdDel']) && !empty($_POST['eventIdDel'])){
 
+// }
 ?>
 
 <?= include 'inc/head.php'; ?>
@@ -97,25 +98,7 @@ var_dump($_POST);
     </div>
     <div class="calendar-outline mt-3 mb-9" id="appCalendar"></div>
   </div>
-  <div class="modal fade" id="modalDel" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Etes-vous sur de vouloir supprimer cet élément</h5>
-          <button class="btn btn-close p-1" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <input type="hidden" name="deleteEvent" value="">
-          <p class="text-body-tertiary lh-lg mb-0">Veuillez confirmer votre choix</p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-danger" type="button">Confirmer</button>
-          <button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Annuler</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
+  <!-- <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -139,7 +122,7 @@ var_dump($_POST);
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="modal fade" id="searchBoxModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" data-phoenix-modal="data-phoenix-modal" style="--phoenix-backdrop-opacity: 1;">
     <div class="modal-dialog">

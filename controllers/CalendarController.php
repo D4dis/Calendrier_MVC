@@ -49,13 +49,31 @@ class CalendarController
   }
 
   public function deleteOneEvent(){
-    require 'views/calendar.php';
+    require 'views/modalDel.php';
+  }
+
+  public function editOneEvent(){
+    require 'views/modalEdit.php';
   }
 
   public function confirmDeleteOneEvent(){
     $model = new CalendarModel();
     $model->confirmDeleteOneEvent($_GET['id']);
     header('Location: index.php?ctrl=calendar');
+  }
+
+  public function confirmEditOneEvent(){
+    $model = new CalendarModel();
+    if(!empty($_POST['heureDebut']) || !empty($_POST['heureFin'])){
+      $model->confirmEditOneEvent($_POST);
+      unset($_SESSION);
+      header('Location: index.php?ctrl=calendar');
+    } else {
+      $idPost = $_POST['id'];
+      $_SESSION['error'] = "Vous ne pouvez pas entrer de données vides";
+      // require 'views/modalEdit.php';
+      header("Location: index.php?ctrl=calendar&action=editOneEvent&id=$idPost");
+    }
   }
 
 }

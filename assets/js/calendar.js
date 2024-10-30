@@ -177,12 +177,23 @@
   </div>
 
   <div class="modal-footer d-flex justify-content-end px-card pt-0 border-top-0">
-    <button class="btn btn-phoenix-secondary btn-sm" data-event-id="${event.id}" id="deleteEventBtn" data-bs-toggle="modal" data-bs-target="#modalEdit" >
-      <span class="fas fa-pencil-alt fs-10 mr-2"></span> Edit
-    </button>
-    <button type="sumbit" class="btn btn-phoenix-danger btn-sm" data-event-id="${event.id}" id="deleteEventBtn" data-bs-toggle="modal" data-bs-target="#modalDel" >
-    <span class="fa-solid fa-trash fs-9 mr-2" data-fa-transform="shrink-2"></span> Delete
-    </button>
+  <form method="get">
+  <input type="hidden" name="ctrl" value="calendar">
+  <input type="hidden" name="action" value="editOneEvent">
+  <input type="hidden" name="id" value="${event.id}">
+  
+  <button class="btn btn-phoenix-secondary btn-sm" id="editEventBtn">
+  <span class="fas fa-pencil-alt fs-10 mr-2"></span> Edit
+  </button>
+  </form>
+  <form method="get">
+  <input type="hidden" name="ctrl" value="calendar">
+  <input type="hidden" name="action" value="deleteOneEvent">
+  <input type="hidden" name="id" value="${event.id}">
+      <button type="sumbit" class="btn btn-phoenix-danger btn-sm" id="deleteEventBtn">
+      <span class="fa-solid fa-trash fs-9 mr-2" data-fa-transform="shrink-2"></span> Delete
+      </button>
+    </form>
 </div>
 `;
 
@@ -315,6 +326,8 @@
               Selectors.EVENT_DETAILS_MODAL_CONTENT
             ).innerHTML = template;
             const modal = new window.bootstrap.Modal(eventDetailsModal);
+            const id = event.id;
+            console.log(id)
             modal.show();
           }
         },
@@ -413,35 +426,3 @@
 
 }));
 //# sourceMappingURL=calendar.js.map
-
-document
-  .getElementById('modalDel')
-  .addEventListener('shown.bs.modal', function () {
-    const deleteButton = document.getElementById('deleteEventBtn');
-    if (deleteButton) {
-      deleteButton.addEventListener('click', function () {
-        const eventId = this.getAttribute('data-event-id');
-
-        // Envoyer l'ID de l'événement à PHP via AJAX
-        fetch('http://localhost/stage/Calendrier_MVC/calendar.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ id: eventId })
-        })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              console.log('Événement supprimé avec succès');
-              // Optionnel : fermer le modal et rafraîchir le calendrier
-            } else {
-              console.error('Erreur lors de la suppression de l’événement');
-            }
-          })
-          .catch(error => console.error('Erreur :', error));
-      });
-    } else {
-      console.error('Le bouton de suppression n’a pas pu être trouvé');
-    }
-  });

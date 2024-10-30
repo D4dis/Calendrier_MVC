@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 28 oct. 2024 à 21:08
+-- Généré le : mer. 30 oct. 2024 à 15:03
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -40,7 +40,11 @@ CREATE TABLE `suivi` (
 
 INSERT INTO `suivi` (`s_id`, `s_heure_debut`, `s_status`, `s_heure_fin`) VALUES
 (1, '2024-10-28 09:00:00', 1, '2024-10-28 12:18:33'),
-(2, '2024-10-28 13:09:49', 0, '2024-10-28 16:39:22');
+(2, '2024-10-28 13:09:49', 0, '2024-10-28 16:39:22'),
+(5, '2024-10-29 08:57:32', 1, '2024-10-29 12:13:06'),
+(6, '2024-10-29 12:51:08', 0, '2024-10-29 16:46:10'),
+(12, '2024-10-30 09:00:00', 1, '2024-10-30 12:00:00'),
+(14, '2024-10-30 13:00:00', 0, '2024-10-30 14:51:42');
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,7 @@ ALTER TABLE `taches`
 -- AUTO_INCREMENT pour la table `suivi`
 --
 ALTER TABLE `suivi`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `taches`
