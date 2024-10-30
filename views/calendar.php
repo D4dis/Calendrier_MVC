@@ -6,10 +6,6 @@ if (isset($dataArriveSub['difference']) && isset($dataDepartSub['difference'])) 
 }
 
 $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale) : '';
-
-// if (isset($_POST['eventIdDel']) && !empty($_POST['eventIdDel'])){
-
-// }
 ?>
 
 <?= include 'inc/head.php'; ?>
