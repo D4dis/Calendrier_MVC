@@ -273,6 +273,10 @@ class CalendarModel extends CoreModel
       $pdf->SetFont('Arial', '', 12);
       $pdf->AddPage(); 
 
+      $pdf->SetTitle('Export');
+      $pdf->Write(5, 'Calendar :');
+      $pdf->Ln();
+
       $pdf->Cell(20, 10, 'ID', 1);
       $pdf->Cell(50, 10, 'Heure Debut', 1);
       $pdf->Cell(50, 10, 'Heure Fin', 1);
