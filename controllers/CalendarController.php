@@ -77,4 +77,14 @@ class CalendarController
     }
   }
 
+  public function exportCsv(){
+    $model = new CalendarModel();
+    $model->exportCsv();
+  }
+
+  public function exportPdf(){
+    $model = new CalendarModel();
+    $model->exportPdf();
+  }
+
 }

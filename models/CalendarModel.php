@@ -1,4 +1,5 @@
 <?php
+require_once 'vendor/fpdf/fpdf/src/Fpdf/Fpdf.php';
 
 class CalendarModel extends CoreModel
 {
@@ -228,6 +229,68 @@ class CalendarModel extends CoreModel
       var_dump($this);
     } catch (Exception $e) {
       $e->getMessage();
+    }
+  }
+
+  public function exportCsv()
+  {
+
+    try {
+      $sql = "SELECT * FROM suivi";
+      $this->_req = $this->getDb()->prepare($sql);
+      $this->_req->execute();
+
+      header('Content-Type: text/csv');
+      header('Content-Disposition: attachment; filename="export.csv"');
+      $output = fopen('php://output', 'w');
+
+      $columns = array_keys($this->_req->fetch(PDO::FETCH_ASSOC));
+      fputcsv($output, $columns);
+
+      $this->_req->execute();
+
+      while ($row = $this->_req->fetch(PDO::FETCH_ASSOC)) {
+        fputcsv($output, $row);
+      }
+
+      fclose($output);
+      exit();
+    } catch (PDOException $e) {
+      echo "Erreur : " . $e->getMessage();
+    }
+  }
+
+  public function exportPdf()
+  {
+
+
+    try {
+      $this->_req = $this->getDb()->prepare('SELECT * FROM suivi');
+      $this->_req->execute();
+      $results = $this->_req->fetchAll(PDO::FETCH_ASSOC);
+
+      $pdf = new Fpdf('P', 'mm', 'A4');
+      $pdf->SetFont('Arial', '', 12);
+      $pdf->AddPage(); 
+
+      $pdf->Cell(20, 10, 'ID', 1);
+      $pdf->Cell(50, 10, 'Heure Debut', 1);
+      $pdf->Cell(50, 10, 'Heure Fin', 1);
+      $pdf->Cell(20, 10, 'Status', 1);
+      $pdf->Ln();
+
+      foreach ($results as $result) {
+        $pdf->Cell(20, 10, $result['s_id'], 1);
+        $pdf->Cell(50, 10, $result['s_heure_debut'], 1);
+        $pdf->Cell(50, 10, $result['s_heure_fin'], 1);
+        $pdf->Cell(20, 10, $result['s_status'], 1);
+        $pdf->Ln();
+      }
+
+      $pdf->Output('D', 'export.pdf');
+      // exit();
+    } catch (Exception $e) {
+      echo 'Erreur : ' . $e->getMessage();
     }
   }
 }

@@ -22,13 +22,13 @@
         <tbody>
           <tr>
             <td scope="row">Produit chimique</td>
-            <td>BlaBla</td>
-            <td>Blabla</td>
-            <td>Blabla</td>
-            <td>Blabla</td>
-            <td>Blabla</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
+            <td>...</td>
           </tr>
-  
+
         </tbody>
       </table>
     </div>
@@ -45,7 +45,7 @@
           <div class="modal-body">
             <form action="" method="post">
               <div class="form-floating mb-3">
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <select class="form-select" id="floatingSelect" name="type" aria-label="Floating label select example">
                   <option selected="" disabled>Type</option>
                   <option value="1">Substance chimique</option>
                   <option value="2">Produit chimique</option>
@@ -53,23 +53,23 @@
                 <label for="floatingSelect">Type de l'élément</label>
               </div>
               <div class="form-floating mb-3">
-                <input class="form-control" id="floatingNom" type="text" placeholder="text">
+                <input class="form-control" id="floatingNom" name="nom" type="text" placeholder="text">
                 <label for="floatingNom">Nom du produit ou de la substance chimique</label>
               </div>
               <div class="form-floating mb-3">
-                <input class="form-control" id="floatingFournisseur" type="text" placeholder="text">
+                <input class="form-control" id="floatingFournisseur" name="fournisseur" type="text" placeholder="text">
                 <label for="floatingFournisseur">Nom du fournisseur (pour les produits chimiques)</label>
               </div>
               <div class="form-floating mb-3">
-                <input class="form-control" id="floatingDateInt" type="text" placeholder="text">
+                <input class="form-control" id="floatingDateInt" name="dateInt" type="text" placeholder="text">
                 <label for="floatingDateInt">Date d’intégration de la FDS ou de la Fiche toxicologique au registre</label>
               </div>
               <div class="form-floating mb-3">
-                <input class="form-control" id="floatingQuantite" type="text" placeholder="text">
+                <input class="form-control" id="floatingQuantite" name="quantite" type="text" placeholder="text">
                 <label for="floatingQuantite">Quantité présente dans l’unité (pour les produits chimiques)</label>
               </div>
               <div class="form-floating mb-3">
-                <input class="form-control" id="floatingDateEntre" type="text" placeholder="text">
+                <input class="form-control" id="floatingDateEntre" name="dateEntre" type="text" placeholder="text">
                 <label for="floatingDateEntre">Date d’entrée du produit chimique dans l’unité</label>
               </div>
           </div>
@@ -84,7 +84,7 @@
       </div>
     </div>
   </div>
+</main>
 
-</main class="top" id="top">
 
 <?= include 'inc/foot.php'; ?>

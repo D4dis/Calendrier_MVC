@@ -22,6 +22,14 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
         <h4 class="mb-0 text-body-emphasis fw-bold fs-md-6"><span class="calendar-day d-block d-md-inline mb-1"></span><span class="px-3 fw-thin text-body-quaternary d-none d-md-inline">|</span><span class="calendar-date"></span></h4>
       </div>
       <div class="col-7 col-md-6 d-flex justify-content-end">
+        <div class="btn-group me-1">
+
+          <button class="btn dropdown-toggle btn-primary" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Exporter</button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="index.php?ctrl=calendar&action=exportCsv">Export en CSV</a>
+            <a class="dropdown-item" href="index.php?ctrl=calendar&action=exportPdf">Export en PDF</a>
+          </div>
+        </div>
         <a class="btn btn-danger btn-sm" href="index.php?ctrl=calendar&action=delete">Vider le tableau</a>
       </div>
     </div>
