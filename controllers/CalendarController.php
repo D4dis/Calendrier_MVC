@@ -44,6 +44,10 @@ class CalendarController
   }
 
   public function delete(){
+    require 'views/modalTrunc.php';
+  }
+
+  public function confirmTruncate(){
     $model = new CalendarModel();
     $model->delete();
     header('Location: index.php?ctrl=calendar');
