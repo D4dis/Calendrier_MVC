@@ -7,7 +7,7 @@ include 'inc/head.php';
 <!--    Main Content-->
 <!-- ===============================================-->
 <main class="main" id="top">
-  <?= include 'inc/nav.php' ?>
+  <?php include 'inc/nav.php' ?>
   <div class="content">
     <div class="pb-5">
       <div class="row g-4">
@@ -1398,6 +1398,6 @@ include 'inc/head.php';
   </div>
 </div>
 
-<?= include 'inc/homeFoot.php'; ?>
+<?php include 'inc/homeFoot.php'; ?>
 
 </html>

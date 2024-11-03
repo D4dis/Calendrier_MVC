@@ -8,7 +8,7 @@ include 'inc/head.php';
   <!--    Main Content-->
   <!-- ===============================================-->
   <main class="main" id="top">
-    <?= include 'inc/nav.php'; ?>
+    <?php include 'inc/nav.php'; ?>
     <div class="content">
       <div class="mb-9">
         <div class="mx-n4 mx-lg-n6 mt-n5 position-relative mb-md-9" style="height:208px">
@@ -875,6 +875,6 @@ include 'inc/head.php';
     </div>
   </div>
 
-<?= include 'inc/faqFoot.php' ?>
+<?php include 'inc/faqFoot.php' ?>
 
 </html>

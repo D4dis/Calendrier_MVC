@@ -2,10 +2,10 @@
 
 ?>
 
-<?= include 'inc/head.php'; ?>
+<?php include 'inc/head.php'; ?>
 
 <main class="main" id="top">
-  <?= include 'inc/nav.php'; ?>
+  <?php include 'inc/nav.php'; ?>
   <div class="content">
     <div>
       <table class="table text-center">
@@ -87,4 +87,4 @@
 </main>
 
 
-<?= include 'inc/foot.php'; ?>
+<?php include 'inc/foot.php'; ?>

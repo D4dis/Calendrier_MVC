@@ -8,14 +8,14 @@ if (isset($dataArriveSub['difference']) && isset($dataDepartSub['difference'])) 
 $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale) : '';
 ?>
 
-<?= include 'inc/head.php'; ?>
+<?php include 'inc/head.php'; ?>
 
 
 <!-- ===============================================-->
 <!--    Main Content-->
 <!-- ===============================================-->
 <main class="main" id="top">
-  <?= include 'inc/nav.php'; ?>
+  <?php include 'inc/nav.php'; ?>
   <div class="content">
     <div class="row g-0 mb-4 align-items-center">
       <div class="col-5 col-md-6">
@@ -466,6 +466,6 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
   </div>
 </div>
 
-<?= include 'inc/foot.php' ?>
+<?php include 'inc/foot.php' ?>
 
 </html>

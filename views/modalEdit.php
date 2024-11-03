@@ -5,11 +5,11 @@ var_dump($_POST);
 ?>
 
 
-<?= include 'inc/head.php'; ?>
+<?php include 'inc/head.php'; ?>
 
 <main class="main" id="top">
   <div class="content">
-    <?= include 'inc/nav.php'; ?>
+    <?php include 'inc/nav.php'; ?>
     <?php if (isset($_SESSION['error'])) : ?>
       <div class="d-flex justify-content-center">
         <div class="alert alert-outline-danger d-flex align-items-center w-50" role="alert">
@@ -44,4 +44,4 @@ var_dump($_POST);
   </div>
 </main>
 
-<?= include 'inc/foot.php'; ?>
+<?php include 'inc/foot.php'; ?>
