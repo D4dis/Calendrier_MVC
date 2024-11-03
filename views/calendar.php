@@ -57,7 +57,7 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
     <div class="d-flex flex-column">
       <div class="d-flex justify-content-center gap-3 mt-3">
         <!-- <input type="hidden" name="statut" value="1"> -->
-        <a class="btn btn-primary btn-sm" href="index.php?ctrl=calendar&action=<?php if ($dataCountSuivi['count'] < 1) {
+        <a class="btn btn-primary btn-sm <?= $dataCountSuivi['count'] >= 2 ? "disabled" : "" ?>" href="index.php?ctrl=calendar&action=<?php if ($dataCountSuivi['count'] < 1) {
                                                                                   echo 'insertMatin';
                                                                                 } elseif ($dataCountSuivi['count'] < 2) {
                                                                                   echo 'insertAprem';
@@ -65,7 +65,7 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
                                                                                   echo 'index';
                                                                                 } ?>">Arrivé</a>
         <!-- <input type="hidden" name="statut" value="0"> -->
-        <a class="btn btn-danger btn-sm" href="index.php?ctrl=calendar&action=<?php if ($dataArrive['s_heure_fin'] == NULL && $dataCountSuivi['count'] == 1) {
+        <a class="btn btn-danger btn-sm <?= (!empty($dataDepart['s_heure_fin'])) ? 'disabled' : '' ?>" href="index.php?ctrl=calendar&action=<?php if ($dataArrive['s_heure_fin'] == NULL && $dataCountSuivi['count'] == 1) {
                                                                                 echo 'updateMatin';
                                                                               } elseif (empty($dataDepart['s_heure_fin'])) {
                                                                                 echo 'updateAprem';
