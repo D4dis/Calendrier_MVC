@@ -49,6 +49,8 @@
             </a>
             <div class="parent-wrapper label-1">
               <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-faq">
+                <li class="collapsed-nav-item-title d-none">Faq
+                </li>
                 <li class="nav-item"><a class="nav-link" href="index.php?ctrl=faqtab">
                     <div class="d-flex align-items-center"><span class="nav-link-text">Faq tab</span>
                     </div>

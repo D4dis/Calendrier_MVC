@@ -36,7 +36,7 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
     <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 border-y border-translucent">
       <div class="row py-3 gy-3 gx-0">
         <div class="col-6 col-md-4 order-1 d-flex align-items-center">
-          <button class="btn btn-sm btn-phoenix-primary px-4" data-event="today">Today</button>
+          <button class="btn btn-sm btn-phoenix-primary px-4" data-event="today">Aujourd'hui</button>
         </div>
         <div class="col-12 col-md-4 order-md-1 d-flex align-items-center justify-content-center">
           <button class="btn icon-item icon-item-sm shadow-none text-body-emphasis p-0" type="button" data-event="prev" title="Previous"><span class="fas fa-chevron-left"></span></button>
@@ -47,7 +47,7 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
           <div>
             <div class="btn-group btn-group-sm" role="group">
               <!-- <button class="btn btn-phoenix-secondary" data-fc-view="dayGridMonth">Month</button> -->
-              <button class="btn btn-phoenix-secondary active-view" data-fc-view="timeGridWeek">Week</button>
+              <button class="btn btn-phoenix-secondary active-view" data-fc-view="timeGridWeek">Semaine</button>
             </div>
           </div>
         </div>
