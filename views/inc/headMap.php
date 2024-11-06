@@ -40,6 +40,9 @@
   <link href="assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
   <link href="assets/css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
   <link href="assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="" />
   <script>
     var phoenixIsRTL = window.config.config.phoenixIsRTL;
     if (phoenixIsRTL) {
@@ -54,14 +57,7 @@
       linkRTL.setAttribute('disabled', true);
       userLinkRTL.setAttribute('disabled', true);
     }
-
-    const datasTacheFromPhp = <?= $datasTacheToJs ?>;
-    const datasSuiviFromPhp = <?= $datasSuiviToJs ?>;
-    console.log(datasSuiviFromPhp);
   </script>
-  <link href="vendors/leaflet/leaflet.css" rel="stylesheet">
-  <link href="vendors/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
-  <link href="vendors/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
 </head>
 
 

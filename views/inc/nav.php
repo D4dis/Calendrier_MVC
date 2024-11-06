@@ -70,6 +70,11 @@
               </div>
             </a>
           </div>
+          <div class="nav-item-wrapper"><a class="nav-link label-1" href="index.php?ctrl=map" role="button" data-bs-toggle="" aria-expanded="false">
+              <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="map"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Map</span></span>
+              </div>
+            </a>
+          </div>
 
           <div class="navbar-vertical-footer">
             <button class="btn navbar-vertical-toggle border-0 fw-semibold w-100 white-space-nowrap d-flex align-items-center"><span class="uil uil-left-arrow-to-left fs-8"></span><span class="uil uil-arrow-from-right fs-8"></span><span class="navbar-vertical-footer-text ms-2">Collapsed View</span></button>
