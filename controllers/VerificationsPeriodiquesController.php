@@ -12,6 +12,6 @@ class VerificationsPeriodiquesController
   {
     $model = new VerificationsPeriodiquesModel();
     $model->verifForm($_POST);
-    header('Location: index.php?ctrl=VerificationsPeriodiques');
+    require 'views/verificationsPeriodiques.php';
   }
 }

@@ -15,7 +15,7 @@ require 'inc/head.php';
       </div>
       <?php session_destroy(); ?>
     <?php endif; ?>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">Eléments</th>
