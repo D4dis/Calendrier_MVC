@@ -24,8 +24,8 @@ document.getElementById("chatForm").addEventListener("submit", function (e) {
       newMsg.classList.add('border');
       newMsg.classList.add('border-primary');
       newMsg.classList.add('py-2');
-      newMsg.classList.add('ps-2');
-      newMsg.classList.add('pe-2');
+      newMsg.classList.add('ps-3');
+      newMsg.classList.add('pe-3');
       const msgTxt = document.createElement('p');
       msgTxt.classList.add('mb-0');
       msgTxt.classList.add('fw-semibold');

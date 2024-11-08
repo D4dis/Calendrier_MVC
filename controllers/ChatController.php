@@ -2,6 +2,8 @@
 
 class ChatController {
   public function index(){
+    $model = new ChatModel();
+    $msgs = $model->getAllMsg();
     require 'views/chat.php';
   }
 

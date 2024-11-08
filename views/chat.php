@@ -22,9 +22,17 @@ require 'inc/headChat.php';
               <div class="dropdown-menu dropdown-menu-end py-2" aria-labelledby="support-chat-dropdown"><a class="dropdown-item" href="#!">Request a callback</a><a class="dropdown-item" href="#!">Search in chat</a><a class="dropdown-item" href="#!">Show history</a><a class="dropdown-item" href="#!">Report to Admin</a><a class="dropdown-item btn-support-chat" href="#!">Close Support</a></div>
             </div>
           </div>
-          <div class="card-body chat p-0" >
+          <div class="card-body chat p-0">
             <div class="d-flex flex-column-reverse scrollbar h-100 p-3 align-items-end">
-              <div class="text-end mt-6 d-flex flex-column w-50 align-items-end" id="msgBox"></div>
+              <div class="text-end mt-6 d-flex flex-column w-50 align-items-end" id="msgBox">
+                <?php if (isset($msgs) && !empty($msgs)) : ?>
+                  <?php foreach ($msgs as $msg) : ?>
+                    <div class="mb-2 d-inline-flex align-items-center text-decoration-none text-body-emphasis bg-body-hover rounded-pill border border-primary py-2 ps-3 pe-3">
+                      <p class="mb-0 fw-semibold fs-9"><?= $msg['m_content'] ?></p>
+                    </div>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
           <form action="" method="post" id="chatForm">
