@@ -1,13 +1,11 @@
 
 document.getElementById("chatForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // Empêche le rechargement de la page
+  e.preventDefault(); 
 
   if (document.getElementById('inputMsg').value !== '') {
 
-    // Récupère les données du formulaire
     const formData = new FormData(this);
 
-    // Envoie les données via AJAX
     fetch("index.php?ctrl=chat&action=sendMsg", {
       method: "POST",
       body: formData
