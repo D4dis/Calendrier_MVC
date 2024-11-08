@@ -13,12 +13,8 @@ class ChatModel extends CoreModel
     try {
       $this->_req = $this->getDb()->prepare('INSERT INTO message VALUES(DEFAULT, :msg)');
       $this->_req->bindValue(':msg', $msg);
-      if ($this->_req->execute()){
-        $this->_req = $this->getDb()->prepare('SELECT m_content FROM message');
-        $this->_req->execute();
-        $msgs = $this->_req->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($msgs);
-      }
+      $this->_req->execute();
+      
     } catch (PDOException $e) {
       $e->getMessage();
     }
