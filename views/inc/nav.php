@@ -35,6 +35,11 @@
               </div>
             </a>
           </div>
+          <div class="nav-item-wrapper"><a class="nav-link label-1" href="index.php?ctrl=chat" role="button" data-bs-toggle="" aria-expanded="false">
+              <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="message-square"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Chat</span></span>
+              </div>
+            </a>
+          </div>
         </li>
         <li class="nav-item">
           <!-- label-->

@@ -14,12 +14,7 @@
   <script src="vendors/fullcalendar/index.global.min.js"></script>
   <script src="vendors/dayjs/dayjs.min.js"></script>
   <script src="vendors/flatpickr/flatpickr.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
-    <script src="assets/js/map.js"></script>
   <script src="assets/js/phoenix.js"></script>
-  <script src="assets/js/calendar.js"></script>
   <script src="assets/js/chat.js"></script>
 
   </body>
