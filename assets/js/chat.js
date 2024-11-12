@@ -21,16 +21,9 @@ document.getElementById("chatForm").addEventListener("submit", function (e) {
       newMsg.classList.add('rounded-2');
       newMsg.classList.add('p-3');
       newMsg.classList.add('text-white');
-      // newMsg.classList.add('rounded-pill');
-      // newMsg.classList.add('border');
-      // newMsg.classList.add('border-primary');
-      // newMsg.classList.add('py-2');
-      // newMsg.classList.add('ps-3');
-      // newMsg.classList.add('pe-3');
+      newMsg.setAttribute('data-bs-theme', 'light');
       const msgTxt = document.createElement('p');
       msgTxt.classList.add('mb-0');
-      // msgTxt.classList.add('fw-semibold');
-      // msgTxt.classList.add('fs-9');
       msgTxt.textContent = document.getElementById('inputMsg').value;
       msgCont.appendChild(newMsg);
       newMsg.appendChild(msgTxt);

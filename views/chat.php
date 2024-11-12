@@ -23,12 +23,12 @@ require 'inc/headChat.php';
             </div>
           </div>
           <div class="card-body chat p-0">
-            <div class="d-flex flex-column-reverse scrollbar h-100 p-3 align-items-end">
+            <div class="chat d-flex flex-column-reverse scrollbar h-100 p-3 align-items-end">
               <div class="text-end mt-6 d-flex flex-column w-50 align-items-end" id="msgBox">
                 <?php if (isset($msgs) && !empty($msgs)) : ?>
                   <?php foreach ($msgs as $msg) : ?>
                     <div class="chat-message-content me-2">
-                      <div class="mb-1 sent-message-content bg-primary rounded-2 p-3 text-white">
+                      <div class="mb-1 sent-message-content bg-primary rounded-2 p-3 text-white" data-bs-theme="light">
                         <p class="mb-0"><?= $msg['m_content'] ?></p>
                       </div>
                     </div>
