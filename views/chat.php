@@ -27,7 +27,7 @@ require 'inc/headChat.php';
               <div class="text-end mt-6 d-flex flex-column w-50 align-items-end" id="msgBox">
                 <?php if (isset($msgs) && !empty($msgs)) : ?>
                   <?php foreach ($msgs as $msg) : ?>
-                    <div class="chat-message-content me-2">
+                    <div class="chat-message me-2">
                       <div class="mb-1 sent-message-content bg-primary rounded-2 p-3 text-white" data-bs-theme="light">
                         <p class="mb-0"><?= $msg['m_content'] ?></p>
                       </div>
