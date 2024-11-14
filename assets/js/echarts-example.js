@@ -1,7 +1,8 @@
 (function (factory) {
   typeof define === 'function' && define.amd ? define(factory) :
-  factory();
-})((function () { 'use strict';
+    factory();
+})((function () {
+  'use strict';
 
   // import * as echarts from 'echarts';
   const { merge } = window._;
@@ -82,22 +83,19 @@
     let tooltipItem = ``;
     params.forEach(el => {
       tooltipItem += `<div class='ms-1'>
-        <h6 class="text-body-tertiary"><span class="fas fa-circle me-1 fs-10" style="color:${
-          el.borderColor ? el.borderColor : el.color
+        <h6 class="text-body-tertiary"><span class="fas fa-circle me-1 fs-10" style="color:${el.borderColor ? el.borderColor : el.color
         }"></span>
-          ${el.seriesName} : ${
-      typeof el.value === 'object' ? el.value[1] : el.value
-    }
+          ${el.seriesName} : ${typeof el.value === 'object' ? el.value[1] : el.value
+        }
         </h6>
       </div>`;
     });
     return `<div>
             <p class='mb-2 text-body-tertiary'>
-              ${
-                window.dayjs(params[0].axisValue).isValid()
-                  ? window.dayjs(params[0].axisValue).format(dateFormatter)
-                  : params[0].axisValue
-              }
+              ${window.dayjs(params[0].axisValue).isValid()
+        ? window.dayjs(params[0].axisValue).format(dateFormatter)
+        : params[0].axisValue
+      }
             </p>
             ${tooltipItem}
           </div>`;
@@ -2547,19 +2545,10 @@
     const $chartEl = document.querySelector(
       '.echart-bar-line-mixed-chart-example'
     );
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
+    const departement = [
+      'Hérault',
+      'Rhône',
+      'Aude'
     ];
 
     if ($chartEl) {
@@ -2568,17 +2557,6 @@
       const getDefaultOptions = () => ({
         tooltip: {
           trigger: 'axis',
-          axisPointer: {
-            type: 'cross',
-            crossStyle: {
-              color: getColor('quaternary-color')
-            },
-            label: {
-              show: true,
-              backgroundColor: getColor('tertiary-color'),
-              color: getColor('body-highlight-bg')
-            }
-          },
           padding: [7, 10],
           backgroundColor: getColor('body-highlight-bg'),
           borderColor: getColor('border-color'),
@@ -2612,7 +2590,7 @@
         },
         legend: {
           top: 40,
-          data: ['Evaporation', 'Precipitation', 'Average temperature'],
+          data: ['Utilisateurs', 'Utilisateurs Connectés'],
           textStyle: {
             color: getColor('tertiary-color')
           }
@@ -2620,7 +2598,7 @@
         xAxis: [
           {
             type: 'category',
-            data: months,
+            data: departement,
             axisLabel: {
               color: getColor('quaternary-color'),
               formatter: value => value.slice(0, 3)
@@ -2640,11 +2618,11 @@
           {
             type: 'value',
             min: 0,
-            max: 250,
-            interval: 50,
+            max: 10,
+            interval: 2,
             axisLabel: {
               color: getColor('quaternary-color'),
-              formatter: '{value} ml'
+              formatter: '{value}'
             },
             splitLine: {
               show: true,
@@ -2654,14 +2632,14 @@
             }
           },
           {
-            type: 'value',
-            min: 0,
-            max: 25,
-            interval: 5,
-            axisLabel: {
-              color: getColor('quaternary-color'),
-              formatter: '{value} °C'
-            },
+            // type: 'value',
+            // min: 0,
+            // max: 25,
+            // interval: 5,
+            // axisLabel: {
+            //   color: getColor('quaternary-color'),
+            //   formatter: '{value} °C'
+            // },
 
             splitLine: {
               show: true,
@@ -2672,22 +2650,22 @@
           }
         ],
         series: [
+          // {
+          //   name: 'Evaporation',
+          //   type: 'bar',
+          //   data: [
+          //     2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
+          //   ],
+          //   itemStyle: {
+          //     color: getColor('primary'),
+          //     barBorderRadius: [3, 3, 0, 0]
+          //   }
+          // },
           {
-            name: 'Evaporation',
+            name: 'Utilisateurs',
             type: 'bar',
             data: [
-              2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
-            ],
-            itemStyle: {
-              color: getColor('primary'),
-              barBorderRadius: [3, 3, 0, 0]
-            }
-          },
-          {
-            name: 'Precipitation',
-            type: 'bar',
-            data: [
-              2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
+              4.0, 3.0, 5.0
             ],
             itemStyle: {
               color: getColor('info'),
@@ -2695,19 +2673,22 @@
             }
           },
           {
-            name: 'Average temperature',
+            name: 'Utilisateurs Connectés',
             type: 'line',
-            yAxisIndex: 1,
+            // yAxisIndex: 1,
             data: [
-              2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2
+              2.0, 1.0, 3.0
             ],
             lineStyle: {
-              color: getColor('warning')
+              color: getColor('primary')
             },
             itemStyle: {
               color: getColor('body-highlight-bg'),
-              borderColor: getColor('warning'),
+              borderColor: getColor('primary'),
               borderWidth: 2
+            },
+            areaStyle: {
+              color: 'rgba(71,144,187,0.5)'
             },
             symbol: 'circle',
             symbolSize: 10
@@ -2769,9 +2750,8 @@
             } else {
               tar = params[2];
             }
-            return `${window.dayjs(tar.name).format('MMM DD')}<br/>${
-            tar.seriesName
-          } : ${tar.value}`;
+            return `${window.dayjs(tar.name).format('MMM DD')}<br/>${tar.seriesName
+              } : ${tar.value}`;
           },
           transitionDuration: 0,
           axisPointer: {
@@ -3836,9 +3816,9 @@
           transitionDuration: 0,
           formatter: params =>
             `<strong>${params.data?.name} :</strong> ${(
-            (params.data?.value / total) *
-            100
-          ).toFixed(2)}%`
+              (params.data?.value / total) *
+              100
+            ).toFixed(2)}%`
         },
         toolbox: {
           show: false,
@@ -6154,9 +6134,8 @@
       const num = params.seriesIndex;
       return `<strong > ${params.name} </strong>
     <div class="fs-9 text-body-tertiary">
-      <strong >${indicators[params.seriesIndex][0]}</strong>: ${
-      params.value[0]
-    }  <br>
+      <strong >${indicators[params.seriesIndex][0]}</strong>: ${params.value[0]
+        }  <br>
       <strong>${indicators[num][1]}</strong>: ${params.value[1]}  <br>
       <strong>${indicators[num][2]}</strong>: ${params.value[2]}  <br>
       <strong>${indicators[num][3]}</strong>: ${params.value[3]}  <br>
