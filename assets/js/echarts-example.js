@@ -2595,7 +2595,7 @@
         },
         legend: {
           top: 40,
-          data: ['Utilisateurs', 'Utilisateurs Connectés'],
+          data: ['Utilisateurs', 'Utilisateurs connectés il y a plus de 2 semaines'],
           textStyle: {
             color: getColor('tertiary-color')
           }
@@ -2656,7 +2656,7 @@
             }
           },
           {
-            name: 'Utilisateurs Connectés',
+            name: 'Utilisateurs connectés il y a plus de 2 semaines',
             type: 'line',
             // yAxisIndex: 1,
             data: userConnectedData,
