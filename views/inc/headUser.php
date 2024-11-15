@@ -55,9 +55,6 @@
       userLinkRTL.setAttribute('disabled', true);
     }
   </script>
-  <link href="vendors/leaflet/leaflet.css" rel="stylesheet">
-  <link href="vendors/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
-  <link href="vendors/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
 </head>
 
 

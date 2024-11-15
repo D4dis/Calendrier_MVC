@@ -2540,16 +2540,21 @@
     }
   };
 
+  
   const barLineMixedChartInit = () => {
     const { getColor, getData } = window.phoenix.utils;
     const $chartEl = document.querySelector(
       '.echart-bar-line-mixed-chart-example'
     );
-    const departement = [
-      'Hérault',
-      'Rhône',
-      'Aude'
-    ];
+    const departementsJson = JSON.parse(departements);
+    const onlyDepartements = departementsJson.map(item => item.d_nom);
+
+    const userByDepartementJson = JSON.parse(userByDepartement);
+    const userByDep = userByDepartementJson.map(item => item.u_number);
+
+    const userConnectedJson = JSON.parse(userConnected);
+    const userConnectedData = userConnectedJson.map(item => item.u_con_number);
+    console.log(userConnectedData);
 
     if ($chartEl) {
       const userOptions = getData($chartEl, 'echarts');
@@ -2569,12 +2574,12 @@
         toolbox: {
           top: 0,
           feature: {
-            dataView: { show: false },
-            magicType: {
-              show: true,
-              type: ['line', 'bar']
-            },
-            restore: { show: true },
+            // dataView: { show: false },
+            // magicType: {
+            //   show: true,
+            //   type: ['line', 'bar']
+            // },
+            // restore: { show: true },
             saveAsImage: { show: true }
           },
           iconStyle: {
@@ -2598,7 +2603,7 @@
         xAxis: [
           {
             type: 'category',
-            data: departement,
+            data: onlyDepartements,
             axisLabel: {
               color: getColor('quaternary-color'),
               formatter: value => value.slice(0, 3)
@@ -2632,15 +2637,6 @@
             }
           },
           {
-            // type: 'value',
-            // min: 0,
-            // max: 25,
-            // interval: 5,
-            // axisLabel: {
-            //   color: getColor('quaternary-color'),
-            //   formatter: '{value} °C'
-            // },
-
             splitLine: {
               show: true,
               lineStyle: {
@@ -2650,23 +2646,10 @@
           }
         ],
         series: [
-          // {
-          //   name: 'Evaporation',
-          //   type: 'bar',
-          //   data: [
-          //     2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
-          //   ],
-          //   itemStyle: {
-          //     color: getColor('primary'),
-          //     barBorderRadius: [3, 3, 0, 0]
-          //   }
-          // },
           {
             name: 'Utilisateurs',
             type: 'bar',
-            data: [
-              4.0, 3.0, 5.0
-            ],
+            data: userByDep,
             itemStyle: {
               color: getColor('info'),
               barBorderRadius: [3, 3, 0, 0]
@@ -2676,9 +2659,7 @@
             name: 'Utilisateurs Connectés',
             type: 'line',
             // yAxisIndex: 1,
-            data: [
-              2.0, 1.0, 3.0
-            ],
+            data: userConnectedData,
             lineStyle: {
               color: getColor('primary')
             },

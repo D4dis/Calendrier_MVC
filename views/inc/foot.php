@@ -22,6 +22,11 @@
   <script src="assets/js/phoenix.js"></script>
   <script src="assets/js/calendar.js"></script>
   <script src="assets/js/chat.js"></script>
+  <script>
+    const departements = <?= json_encode($departementsToJs); ?>;
+    const userByDepartement = <?= json_encode($userByDepToJs); ?>;
+    const userConnected = <?= json_encode($userConnectedToJs); ?>;
+  </script>
   <script src="assets/js/echarts-example.js"></script>
 
 

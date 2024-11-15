@@ -1,11 +1,14 @@
 <?php
 
+$departements = json_encode($departements);
 
-require 'inc/headUser.php';
+var_dump($departements);
+
+
 ?>
+<?php require 'inc/headUser.php';?>
 
 <main class="main" id="top">
-  <?php require 'inc/nav.php'; ?>
   <div class="content">
   <div class="echart-bar-line-mixed-chart-example" style="min-height:700px"></div>
   </div>
