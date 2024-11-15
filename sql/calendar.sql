@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 13 nov. 2024 à 16:16
+-- Généré le : ven. 15 nov. 2024 à 16:01
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -24,13 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `departement`
+-- Structure de la table `departements`
 --
 
-CREATE TABLE `departement` (
+CREATE TABLE `departements` (
   `d_id` int(11) NOT NULL,
-  `d_numero` int(11) NOT NULL
+  `d_numero` int(11) NOT NULL,
+  `d_nom` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `departements`
+--
+
+INSERT INTO `departements` (`d_id`, `d_numero`, `d_nom`) VALUES
+(1, 34, 'Hérault'),
+(2, 69, 'Rhône'),
+(3, 11, 'Aude');
 
 -- --------------------------------------------------------
 
@@ -116,17 +126,37 @@ CREATE TABLE `utilisateurs` (
   `u_nom` varchar(255) NOT NULL,
   `u_prenom` varchar(255) NOT NULL,
   `u_departement` int(11) NOT NULL,
-  `u_derniere_connexion` datetime NOT NULL
+  `u_derniere_connexion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`u_id`, `u_nom`, `u_prenom`, `u_departement`, `u_derniere_connexion`) VALUES
+(1, 'Blanc', 'Marie', 34, '2024-11-13'),
+(2, 'David', 'Thomas', 34, '2024-10-22'),
+(3, 'Fontaine', 'Clara', 34, '2024-11-11'),
+(4, 'Perrot', 'Hugo', 34, '2024-10-27'),
+(5, 'Renard', 'Elise', 34, '2024-11-10'),
+(6, 'Morel', 'Alice', 69, '2024-11-11'),
+(7, 'Fournier', 'Pierre', 69, '2024-11-13'),
+(8, 'Garnier', 'Emma', 69, '2024-11-12'),
+(9, 'Rousseau', 'Louis', 69, '2024-10-15'),
+(10, 'Dupont', 'Jean', 11, '2024-10-25'),
+(11, 'Martin', 'Sophie', 11, '2024-11-12'),
+(12, 'Durand', 'Paul', 11, '2024-10-28'),
+(13, 'Lemoine', 'Julie', 11, '2024-11-09'),
+(14, 'Bernard', 'Luc', 11, '2024-10-13');
 
 --
 -- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `departement`
+-- Index pour la table `departements`
 --
-ALTER TABLE `departement`
+ALTER TABLE `departements`
   ADD PRIMARY KEY (`d_id`);
 
 --
@@ -158,10 +188,10 @@ ALTER TABLE `utilisateurs`
 --
 
 --
--- AUTO_INCREMENT pour la table `departement`
+-- AUTO_INCREMENT pour la table `departements`
 --
-ALTER TABLE `departement`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `departements`
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `message`
@@ -185,7 +215,7 @@ ALTER TABLE `taches`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
