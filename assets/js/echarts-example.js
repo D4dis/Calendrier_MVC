@@ -2606,7 +2606,7 @@
             data: onlyDepartements,
             axisLabel: {
               color: getColor('quaternary-color'),
-              formatter: value => value.slice(0, 3)
+              formatter: value => value
             },
             axisPointer: {
               type: 'shadow'
