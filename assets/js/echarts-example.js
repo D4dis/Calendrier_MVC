@@ -2665,7 +2665,7 @@
             },
             itemStyle: {
               color: getColor('body-highlight-bg'),
-              borderColor: getColor('primary'),
+              borderColor: getColor('success'),
               borderWidth: 2
             },
             areaStyle: {

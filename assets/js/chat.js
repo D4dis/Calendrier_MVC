@@ -12,7 +12,7 @@ document.getElementById("chatForm").addEventListener("submit", function (e) {
     })
     .then(() => {
       const msgCont = document.createElement('div');
-      msgCont.classList.add('chat-message-content');
+      msgCont.classList.add('chat-message');
       msgCont.classList.add('me-2');
       const newMsg = document.createElement('div');
       newMsg.classList.add('mb-1');
@@ -27,6 +27,7 @@ document.getElementById("chatForm").addEventListener("submit", function (e) {
       msgTxt.textContent = document.getElementById('inputMsg').value;
       msgCont.appendChild(newMsg);
       newMsg.appendChild(msgTxt);
+      console.log(msgCont)
       document.getElementById('msgBox').appendChild(msgCont);
     })
       .finally(() => {
