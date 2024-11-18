@@ -2579,7 +2579,7 @@
             //   show: true,
             //   type: ['line', 'bar']
             // },
-            // restore: { show: true },
+            restore: { show: true },
             saveAsImage: { show: true }
           },
           iconStyle: {
@@ -2661,7 +2661,7 @@
             // yAxisIndex: 1,
             data: userConnectedData,
             lineStyle: {
-              color: getColor('primary')
+              color: getColor('success-light')
             },
             itemStyle: {
               color: getColor('body-highlight-bg'),
@@ -2669,7 +2669,7 @@
               borderWidth: 2
             },
             areaStyle: {
-              color: 'rgba(71,144,187,0.5)'
+              color: 'rgba(25, 135, 84, 0.15)'
             },
             symbol: 'circle',
             symbolSize: 10
