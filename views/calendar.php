@@ -30,7 +30,26 @@ $heuresTotale = !empty($differencesTotale) ? gmdate("H:i:s", $differencesTotale)
             <a class="dropdown-item" href="index.php?ctrl=calendar&action=exportPdf">Export en PDF</a>
           </div>
         </div>
-        <a class="btn btn-danger btn-sm" href="index.php?ctrl=calendar&action=delete">Vider la table (truncate)</a>
+        
+        <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Vider la table (truncate)</button>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Veuillez confirmer</h5>
+                              <button class="btn btn-close p-1" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <p class="text-body-tertiary lh-lg mb-0">Êtes-vous sur de vouloir vider la table SQL ?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <a class="btn btn-danger btn-sm" href="index.php?ctrl=calendar&action=delete">Vider la table (truncate)</a>
+                              <button class="btn btn-outline-primary" type="button" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
       </div>
     </div>
     <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 border-y border-translucent">
