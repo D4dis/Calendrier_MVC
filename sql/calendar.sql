@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 15 nov. 2024 à 16:01
+-- Généré le : mer. 20 nov. 2024 à 16:11
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `calendar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `caserne`
+--
+
+CREATE TABLE `caserne` (
+  `c_id` int(11) NOT NULL,
+  `c_nom` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `caserne`
+--
+
+INSERT INTO `caserne` (`c_id`, `c_nom`) VALUES
+(1, 'Montpellier'),
+(2, 'Toulouse');
 
 -- --------------------------------------------------------
 
@@ -98,7 +117,13 @@ INSERT INTO `suivi` (`s_id`, `s_heure_debut`, `s_status`, `s_heure_fin`) VALUES
 (27, '2024-11-12 08:54:55', 1, '2024-11-12 12:00:07'),
 (28, '2024-11-12 12:45:10', 0, '2024-11-12 16:40:00'),
 (29, '2024-11-13 08:55:40', 1, '2024-11-13 11:59:19'),
-(30, '2024-11-13 12:44:31', 0, '2024-11-13 16:39:00');
+(30, '2024-11-13 12:44:31', 0, '2024-11-13 16:39:00'),
+(31, '2024-11-18 08:57:00', 1, '2024-11-18 12:00:05'),
+(32, '2024-11-18 12:45:07', 0, '2024-11-18 16:40:12'),
+(33, '2024-11-19 08:51:00', 1, '2024-11-19 12:00:10'),
+(34, '2024-11-19 12:45:15', 0, '2024-11-19 16:35:05'),
+(35, '2024-11-20 08:51:00', 1, '2024-11-20 12:01:18'),
+(36, '2024-11-20 12:45:01', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -118,6 +143,25 @@ CREATE TABLE `taches` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `unite`
+--
+
+CREATE TABLE `unite` (
+  `n_id` int(11) NOT NULL,
+  `n_nom` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `unite`
+--
+
+INSERT INTO `unite` (`n_id`, `n_nom`) VALUES
+(1, 'Intervention'),
+(2, 'Spécialisé');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateurs`
 --
 
@@ -126,32 +170,40 @@ CREATE TABLE `utilisateurs` (
   `u_nom` varchar(255) NOT NULL,
   `u_prenom` varchar(255) NOT NULL,
   `u_departement` int(11) NOT NULL,
-  `u_derniere_connexion` date NOT NULL
+  `u_derniere_connexion` date NOT NULL,
+  `u_caserne` int(11) NOT NULL,
+  `u_unite` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`u_id`, `u_nom`, `u_prenom`, `u_departement`, `u_derniere_connexion`) VALUES
-(1, 'Blanc', 'Marie', 34, '2024-11-13'),
-(2, 'David', 'Thomas', 34, '2024-10-22'),
-(3, 'Fontaine', 'Clara', 34, '2024-11-11'),
-(4, 'Perrot', 'Hugo', 34, '2024-10-27'),
-(5, 'Renard', 'Elise', 34, '2024-11-10'),
-(6, 'Morel', 'Alice', 69, '2024-11-11'),
-(7, 'Fournier', 'Pierre', 69, '2024-11-13'),
-(8, 'Garnier', 'Emma', 69, '2024-11-12'),
-(9, 'Rousseau', 'Louis', 69, '2024-10-15'),
-(10, 'Dupont', 'Jean', 11, '2024-10-25'),
-(11, 'Martin', 'Sophie', 11, '2024-11-12'),
-(12, 'Durand', 'Paul', 11, '2024-10-28'),
-(13, 'Lemoine', 'Julie', 11, '2024-11-09'),
-(14, 'Bernard', 'Luc', 11, '2024-10-13');
+INSERT INTO `utilisateurs` (`u_id`, `u_nom`, `u_prenom`, `u_departement`, `u_derniere_connexion`, `u_caserne`, `u_unite`) VALUES
+(1, 'Blanc', 'Marie', 34, '2024-11-13', 0, 0),
+(2, 'David', 'Thomas', 34, '2024-10-22', 0, 0),
+(3, 'Fontaine', 'Clara', 34, '2024-11-11', 0, 0),
+(4, 'Perrot', 'Hugo', 34, '2024-10-27', 0, 0),
+(5, 'Renard', 'Elise', 34, '2024-11-10', 0, 0),
+(6, 'Morel', 'Alice', 69, '2024-11-11', 0, 0),
+(7, 'Fournier', 'Pierre', 69, '2024-11-13', 0, 0),
+(8, 'Garnier', 'Emma', 69, '2024-11-12', 0, 0),
+(9, 'Rousseau', 'Louis', 69, '2024-10-15', 0, 0),
+(10, 'Dupont', 'Jean', 11, '2024-10-25', 0, 0),
+(11, 'Martin', 'Sophie', 11, '2024-11-12', 0, 0),
+(12, 'Durand', 'Paul', 11, '2024-10-28', 0, 0),
+(13, 'Lemoine', 'Julie', 11, '2024-11-09', 0, 0),
+(14, 'Bernard', 'Luc', 11, '2024-10-13', 0, 0);
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `caserne`
+--
+ALTER TABLE `caserne`
+  ADD PRIMARY KEY (`c_id`);
 
 --
 -- Index pour la table `departements`
@@ -178,6 +230,12 @@ ALTER TABLE `taches`
   ADD PRIMARY KEY (`t_id`);
 
 --
+-- Index pour la table `unite`
+--
+ALTER TABLE `unite`
+  ADD PRIMARY KEY (`n_id`);
+
+--
 -- Index pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
@@ -186,6 +244,12 @@ ALTER TABLE `utilisateurs`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `caserne`
+--
+ALTER TABLE `caserne`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `departements`
@@ -197,19 +261,25 @@ ALTER TABLE `departements`
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `suivi`
 --
 ALTER TABLE `suivi`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT pour la table `taches`
 --
 ALTER TABLE `taches`
   MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `unite`
+--
+ALTER TABLE `unite`
+  MODIFY `n_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
