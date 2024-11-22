@@ -3,13 +3,13 @@
 class User extends CoreEntity
 {
 
-  private $_id;
-  private $_nom;
-  private $_prenom;
-  private $_departement;
-  private $_derniere_connexion;
-  private $_caserne;
-  private $_unite;
+  public $_id;
+  public $_nom;
+  public $_prenom;
+  public $_departement;
+  public $_derniere_connexion;
+  public $caserne;
+  public $unite;
 
   public function getId()
   {
@@ -38,12 +38,12 @@ class User extends CoreEntity
 
   public function getCaserne()
   {
-    return $this->_caserne;
+    return $this->caserne;
   }
 
   public function getUnite()
   {
-    return $this->_unite;
+    return $this->unite;
   }
 
   public function setId($_id): void
@@ -66,18 +66,18 @@ class User extends CoreEntity
     $this->_departement = $_departement;
   }
 
-  public function setDerniereConnexion($_derniere_connexion): void
+  public function setDerniere_Connexion($_derniere_connexion): void
   {
     $this->_derniere_connexion = $_derniere_connexion;
   }
 
-  public function setCaserne($_caserne): void
+  public function setCaserne($caserne): void
   {
-    $this->_caserne = $_caserne;
+    $this->caserne = $caserne;
   }
 
-  public function setUnite($_unite): void
+  public function setUnite($unite): void
   {
-    $this->_unite = $_unite;
+    $this->unite = $unite;
   }
 }

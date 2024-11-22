@@ -8,11 +8,12 @@ class ApiController
     $userDatas = $model->getUserById($_GET['id']);
     $caserneDatas = $model->getCaserneById($_GET['id']);
     $uniteDatas = $model->getUniteById($_GET['id']);
-    $user = new User($userDatas);
     $caserne = new Caserne($caserneDatas);
     $unite = new Unite($uniteDatas);
-
-    // echo json_encode($api, JSON_UNESCAPED_UNICODE);
+    $user = new User($userDatas, $caserne);
+    $user->caserne = $caserne;
+    $user->unite = $unite;
+    $json = json_encode($user);
     require 'views/api.php';
   }
 }

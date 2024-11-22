@@ -3,8 +3,8 @@
 class Unite extends CoreEntity
 {
 
-  private $_id;
-  private $_nom;
+  public $_id;
+  public $_nom;
 
   public function getId()
   {

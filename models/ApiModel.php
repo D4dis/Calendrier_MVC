@@ -13,10 +13,8 @@ class ApiModel extends CoreModel{
 
   public function getUserById($id){
     try {
-      $this->_req = $this->getDb()->prepare("SELECT u_id, u_nom, u_prenom, u_departement, u_derniere_connexion, c_nom, n_nom
+      $this->_req = $this->getDb()->prepare("SELECT u_id, u_nom, u_prenom, u_departement, u_derniere_connexion
       FROM utilisateurs
-      JOIN caserne ON c_id = u_caserne
-      JOIN unite ON n_id = u_unite
       WHERE u_id = :id");
       $this->_req->bindValue(':id', $id);
       $this->_req->execute();
