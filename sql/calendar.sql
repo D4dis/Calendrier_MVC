@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 20 nov. 2024 à 16:11
+-- Généré le : ven. 22 nov. 2024 à 15:41
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -38,7 +38,8 @@ CREATE TABLE `caserne` (
 
 INSERT INTO `caserne` (`c_id`, `c_nom`) VALUES
 (1, 'Montpellier'),
-(2, 'Toulouse');
+(2, 'Carcassonne'),
+(3, 'Lyon');
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,8 @@ CREATE TABLE `unite` (
 
 INSERT INTO `unite` (`n_id`, `n_nom`) VALUES
 (1, 'Intervention'),
-(2, 'Spécialisé');
+(2, 'Spécialisé'),
+(3, 'Police de la route');
 
 -- --------------------------------------------------------
 
@@ -180,20 +182,20 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`u_id`, `u_nom`, `u_prenom`, `u_departement`, `u_derniere_connexion`, `u_caserne`, `u_unite`) VALUES
-(1, 'Blanc', 'Marie', 34, '2024-11-13', 0, 0),
-(2, 'David', 'Thomas', 34, '2024-10-22', 0, 0),
-(3, 'Fontaine', 'Clara', 34, '2024-11-11', 0, 0),
-(4, 'Perrot', 'Hugo', 34, '2024-10-27', 0, 0),
-(5, 'Renard', 'Elise', 34, '2024-11-10', 0, 0),
-(6, 'Morel', 'Alice', 69, '2024-11-11', 0, 0),
-(7, 'Fournier', 'Pierre', 69, '2024-11-13', 0, 0),
-(8, 'Garnier', 'Emma', 69, '2024-11-12', 0, 0),
-(9, 'Rousseau', 'Louis', 69, '2024-10-15', 0, 0),
-(10, 'Dupont', 'Jean', 11, '2024-10-25', 0, 0),
-(11, 'Martin', 'Sophie', 11, '2024-11-12', 0, 0),
-(12, 'Durand', 'Paul', 11, '2024-10-28', 0, 0),
-(13, 'Lemoine', 'Julie', 11, '2024-11-09', 0, 0),
-(14, 'Bernard', 'Luc', 11, '2024-10-13', 0, 0);
+(1, 'Blanc', 'Marie', 34, '2024-11-13', 1, 1),
+(2, 'David', 'Thomas', 34, '2024-10-22', 1, 2),
+(3, 'Fontaine', 'Clara', 34, '2024-11-11', 1, 3),
+(4, 'Perrot', 'Hugo', 34, '2024-10-27', 1, 2),
+(5, 'Renard', 'Elise', 34, '2024-11-10', 1, 1),
+(6, 'Morel', 'Alice', 69, '2024-11-11', 3, 3),
+(7, 'Fournier', 'Pierre', 69, '2024-11-13', 3, 2),
+(8, 'Garnier', 'Emma', 69, '2024-11-12', 3, 1),
+(9, 'Rousseau', 'Louis', 69, '2024-10-15', 3, 3),
+(10, 'Dupont', 'Jean', 11, '2024-10-25', 2, 3),
+(11, 'Martin', 'Sophie', 11, '2024-11-12', 2, 2),
+(12, 'Durand', 'Paul', 11, '2024-10-28', 2, 1),
+(13, 'Lemoine', 'Julie', 11, '2024-11-09', 2, 2),
+(14, 'Bernard', 'Luc', 11, '2024-10-13', 2, 3);
 
 --
 -- Index pour les tables déchargées
@@ -249,7 +251,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `caserne`
 --
 ALTER TABLE `caserne`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `departements`
@@ -279,7 +281,7 @@ ALTER TABLE `taches`
 -- AUTO_INCREMENT pour la table `unite`
 --
 ALTER TABLE `unite`
-  MODIFY `n_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `n_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
