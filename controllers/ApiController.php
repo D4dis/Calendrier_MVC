@@ -6,6 +6,7 @@ class ApiController
   {
     $model = new ApiModel();
     if(!isset($_GET['id']) || empty($_GET['id'])){
+      $error = 'Veuillez entrer un ID correct';
       require 'views/404.php';
     }
     $userDatas = $model->getUserById($_GET['id']);
